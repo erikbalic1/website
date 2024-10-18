@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>2025</title>
+</head>
+<body>
+    <h1>Coming soon!</h1>
+    <div class="timer" id="countdown"></div>
+    <script>
+        
+        function countdownTo2025() {
+            const targetDate = new Date('January 1, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            if (timeLeft > 0) {
+                
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                
+                document.getElementById('countdown').textContent = 
+                    days + " days " + hours + " hours " + minutes + " mimutes " + seconds + " seconds ";
+            } else {
+                document.getElementById('countdown').textContent = "Happy 2025!";
+            }
+        }
+
+        
+        setInterval(countdownTo2025, 1000);
+    </script>
+</body>
+</html>
